@@ -1,0 +1,13 @@
+service: contact-app-backend
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+
+functions:
+  app:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
